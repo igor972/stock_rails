@@ -24,6 +24,9 @@
   <div class="field">
     <%= form.label :image %>
     <%= form.text_field :image %>
+    <%if product.image%>
+      <%= image_tag product.image, width: 100, height: 50%>
+    <%end%>
   </div>
 
   <div class="actions">
