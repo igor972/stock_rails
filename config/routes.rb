@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :reasons
+  resources :warehouses
   root 'welcome#index'
   resources :products
 
