@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_14_200340) do
+ActiveRecord::Schema.define(version: 2018_08_15_175417) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
@@ -18,14 +18,33 @@ ActiveRecord::Schema.define(version: 2018_08_14_200340) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "price"
   end
 
-  create_table "warehouses", force: :cascade do |t|
-    t.integer "quantity"
-    t.integer "reason_id"
+  create_table "reasons", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["reason_id"], name: "index_warehouses_on_reason_id"
+  end
+
+  create_table "sale_products", force: :cascade do |t|
+    t.integer "sale_id"
+    t.integer "product_id"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_sale_products_on_product_id"
+    t.index ["sale_id"], name: "index_sale_products_on_sale_id"
+  end
+
+  create_table "warehouse_changes", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "reason_id"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_warehouse_changes_on_product_id"
+    t.index ["reason_id"], name: "index_warehouse_changes_on_reason_id"
   end
 
 end

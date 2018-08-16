@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Warehouse Changes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Reason</th>
+      <th>Quantity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @warehouse_changes.each do |warehouse_change| %>
+      <tr>
+        <td><%= warehouse_change.product %></td>
+        <td><%= warehouse_change.reason %></td>
+        <td><%= warehouse_change.quantity %></td>
+        <td><%= link_to 'Show', warehouse_change %></td>
+        <td><%= link_to 'Edit', edit_warehouse_change_path(warehouse_change) %></td>
+        <td><%= link_to 'Destroy', warehouse_change, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Warehouse Change', new_warehouse_change_path %>

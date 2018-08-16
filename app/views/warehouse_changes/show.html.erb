@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @warehouse_change.product %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @warehouse_change.reason %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @warehouse_change.quantity %>
+</p>
+
+<%= link_to 'Edit', edit_warehouse_change_path(@warehouse_change) %> |
+<%= link_to 'Back', warehouse_changes_path %>
