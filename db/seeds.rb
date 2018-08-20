@@ -33,10 +33,10 @@ reasons = Reason.create(
   [
     {
       name: 'Adicionar Estoque',
+      action: 'add'
     }, {
       name: 'Remover Estoque',
-    }, {
-      name: 'Outro',
+      action: 'remove'
     }
   ]
 )
