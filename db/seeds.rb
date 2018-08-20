@@ -40,3 +40,18 @@ reasons = Reason.create(
     }
   ]
 )
+
+warehouse_change = WarehouseChange.create(
+  [
+    {
+      product_id: Product.first.id,
+      reason_id: Reason.first.id,
+      quantity: 10.0
+    },
+    {
+      product_id: Product.first.id,
+      reason_id: Reason.all[1].id,
+      quantity: 2.0
+    }
+  ]
+)
