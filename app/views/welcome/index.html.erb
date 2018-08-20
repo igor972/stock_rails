@@ -1,22 +1,30 @@
-<h1>Seja bem vindo, <%= @customer_name %> :D</h1>
+<h1>Seja bem vindo ao sistema de estoques</h1>
 
-<ul>
-  <li><%= link_to 'add Produtos', new_product_path%></li>
-  <li><%= link_to 'ver Produtos', products_path%></li>
-</ul>
+<table width="400">
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Status</th>
+    </tr>
+  </thead>
 
-<br/>
-<br/>
-
-<ul>
-  <li><%= link_to 'add Motivos', new_reason_path%></li>
-  <li><%= link_to 'ver Motivos', reasons_path%></li>
-</ul>
-
-<br/>
-<br/>
-
-<ul>
-  <li><%= link_to 'add/remover Estoque', new_warehouse_change_path%></li>
-  <li><%= link_to 'ver Estoque', warehouse_changes_path%></li>
-</ul>
+  <tbody>
+    <tr>
+      <td>Menu Simples</td>
+      <td>Finished</td>
+    </tr>
+    <tr>
+      <td>No model <b>Reason</b>, mostrar se o campo é pra adicionar(+) ou remover(-)</td>
+      <td>Doing</td>
+    </tr>
+    <tr>
+      <td>Listar Quantidade de produtos cadastrados (mostrar diferença entre adicionados - removidos).
+Esta funcionalidade deve ser mostrada em: /products (products#index)</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Criar Model de venda, onde será selecionado um produto, quantidade</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
