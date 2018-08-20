@@ -16,6 +16,12 @@
     <%= form.text_field :name %>
   </div>
 
+  <div class="field">
+    <%= form.label :action, 'Ação do motivo' %>
+    <%= form.radio_button :action, 'add'%> Adicionará<br />
+    <%= form.radio_button :action, 'remove' %> Removerá<br />
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

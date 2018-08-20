@@ -5,5 +5,10 @@
   <%= @reason.name %>
 </p>
 
+<p>
+  <strong>Ação:</strong>
+  <%= action_name(@reason.action) %>
+</p>
+
 <%= link_to 'Edit', edit_reason_path(@reason) %> |
 <%= link_to 'Back', reasons_path %>
