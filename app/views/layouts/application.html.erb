@@ -10,6 +10,12 @@
   </head>
 
   <body>
+    <nav>
+    <%= link_to 'Início', root_path%> | 
+    <%= link_to 'Produtos cadastrados', products_path%> | 
+    <%= link_to 'Motivos', reasons_path%> | 
+    <%= link_to 'ver Estoque', warehouse_changes_path%>
+    </nav>
     <%= yield %>
   </body>
 </html>

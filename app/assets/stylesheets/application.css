@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+nav {
+  background-color: #D3D3D3;
+  border-color: red;
+  border: solid;
+}
