@@ -52,6 +52,26 @@ warehouse_change = WarehouseChange.create(
       product_id: Product.first.id,
       reason_id: Reason.all[1].id,
       quantity: 2.0
+    },
+    {
+      product_id: Product.all[1].id,
+      reason_id: Reason.first.id,
+      quantity: 20.0
+    },
+    {
+      product_id: Product.all[2].id,
+      reason_id: Reason.first.id,
+      quantity: 30.0
+    },
+    {
+      product_id: Product.all[1].id,
+      reason_id: Reason.all[1].id,
+      quantity: 2.0
+    },
+    {
+      product_id: Product.all[2].id,
+      reason_id: Reason.all[1].id,
+      quantity: 2.0
     }
   ]
 )
