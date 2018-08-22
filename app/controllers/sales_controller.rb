@@ -13,7 +13,7 @@ class SalesController < ApplicationController
   end
 
   def create
-    @sale = WarehouseChange.new(sale_params)
+    @sale = Sale.new(sale_params)
 
     respond_to do |format|
       if @sale.save
