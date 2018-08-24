@@ -2,7 +2,7 @@ class SalesController < ApplicationController
   before_action :set_sale, only: [:show, :destroy]
 
   def index
-    @sale = Sale.all
+    @sales = Sale.all
   end
 
   def show
@@ -10,6 +10,7 @@ class SalesController < ApplicationController
 
   def new
     @sale = Sale.new
+    @sale.sale_products.build
   end
 
   def create
@@ -39,7 +40,7 @@ class SalesController < ApplicationController
       @sale = Sale.find(params[:id])
     end
 
-    def sales_params
-      require(:sale).permit(:total)
+    def sale_params
+      params.require(:sale).permit(:total, sale_products_attributes: [:product_id, :quantity])
     end
 end

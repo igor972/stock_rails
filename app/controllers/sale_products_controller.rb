@@ -5,25 +5,30 @@ class SaleProductsController < ApplicationController
   # GET /sale_products.json
   def index
     @sale_products = SaleProduct.all
+    p '================== INDEX =================='
   end
 
   # GET /sale_products/1
   # GET /sale_products/1.json
   def show
+    p '================== SHOW =================='
   end
 
   # GET /sale_products/new
   def new
     @sale_product = SaleProduct.new
+    p '================== NEW =================='
   end
 
   # GET /sale_products/1/edit
   def edit
+    p '================== EDIT =================='
   end
 
   # POST /sale_products
   # POST /sale_products.json
   def create
+    p '================== CREATE =================='
     @sale_product = SaleProduct.new(sale_product_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class SaleProductsController < ApplicationController
   # PATCH/PUT /sale_products/1
   # PATCH/PUT /sale_products/1.json
   def update
+    p '================== UPDATE =================='
     respond_to do |format|
       if @sale_product.update(sale_product_params)
         format.html { redirect_to @sale_product, notice: 'Sale product was successfully updated.' }
@@ -54,6 +60,7 @@ class SaleProductsController < ApplicationController
   # DELETE /sale_products/1
   # DELETE /sale_products/1.json
   def destroy
+    p '================== DESTROY =================='
     @sale_product.destroy
     respond_to do |format|
       format.html { redirect_to sale_products_url, notice: 'Sale product was successfully destroyed.' }

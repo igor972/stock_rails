@@ -1,0 +1,9 @@
+<div class="field">
+  <%= sale.label 'product_id' %>
+  <%= sale.collection_select(:product_id, products_list_with_name_with_price, :id, :name) %>
+</div>
+
+<div class="field">
+  <%= sale.label 'quantity' %>
+  <%= sale.number_field :quantity %>
+</div>
