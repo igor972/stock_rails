@@ -10,4 +10,11 @@ class Sale < ApplicationRecord
     end
   end
 
+  def get_total_value
+    total = 0
+    self.sale_products.each do |sale_product|
+      total += sale_product.quantity * sale_product.product.price
+    end
+    total
+  end
 end

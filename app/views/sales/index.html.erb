@@ -6,7 +6,9 @@
   <thead>
     <tr>
       <th>#</th>
+      <th>Total</th>
       <th>DateTime</th>
+      <th>Produtos</th>
     </tr>
   </thead>
 
@@ -14,7 +16,31 @@
     <% @sales.each do |sale| %>
       <tr>
         <td><%= sale.id %></td>
+        <td>R$ <%= sale.get_total_value %></td>
         <td><%= sale.created_at %></td>
+        <td>
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Subtotal</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% sale.sale_products.each_with_index do |sale_product, index| %>
+                <tr>
+                  <td><%= index + 1 %></td>
+                  <td><%= sale_product.product.name %></td>
+                  <td><%= sale_product.quantity %></td>
+                  <td>R$ <%= sale_product.subtotal %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </td>
       </tr>
     <% end %>
   </tbody>
