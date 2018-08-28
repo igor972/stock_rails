@@ -27,4 +27,16 @@ class WarehouseChange < ApplicationRecord
       errors.add(:quantity, "Estoque não pode ficar negativo. Existem #{total} itens em estoque")
     end
   end
+
+  def self.product_quantity_is_available?(product_id, quantity)
+    WarehouseChange.total_itens(product_id) >= quantity
+  end
+
+  def self.add_sell(product_id, quantity)
+    whc = WarehouseChange.create(
+      product_id: product_id,
+      reason_id: 3,
+      quantity: quantity
+    )
+  end
 end
