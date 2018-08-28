@@ -28,7 +28,6 @@ products = Product.create(
 )
 
 
-
 reasons = Reason.create(
   [
     {
@@ -37,6 +36,12 @@ reasons = Reason.create(
     }, {
       name: 'Remover Estoque',
       action: 'remove'
+    }, {
+      name: 'Venda',
+      action: 'remove'
+    }, {
+      name: 'Cancelamento venda',
+      action: 'add'
     }
   ]
 )
