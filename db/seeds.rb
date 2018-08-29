@@ -27,7 +27,7 @@ products = Product.create(
   ]
 )
 
-
+p "======Creating Reasons======"
 reasons = Reason.create(
   [
     {
@@ -46,6 +46,7 @@ reasons = Reason.create(
   ]
 )
 
+p "======Creating WarehouseChange======"
 warehouse_change = WarehouseChange.create(
   [
     {
@@ -81,9 +82,10 @@ warehouse_change = WarehouseChange.create(
   ]
 )
 
+p "======Creating Some Sales======"
 
 3.times do
-  random_product_id = [0, 1, 2].sample
+  random_product_id = [1, 2, 3].sample
 
   sale = Sale.new
   2.times {sale.sale_products.build}
@@ -94,18 +96,4 @@ warehouse_change = WarehouseChange.create(
   end
   sale.save!
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
