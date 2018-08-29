@@ -1,5 +1,6 @@
 class SalesController < ApplicationController
   before_action :set_sale, only: [:show, :edit, :update, :destroy]
+  before_action :remove_invalid_sales, only: [:start_new_sale, :index]
 
   def index
     @sales = Sale.all
@@ -67,5 +68,9 @@ class SalesController < ApplicationController
 
     def sale_params
       params.require(:sale).permit(:total, sale_products_attributes: [:product_id, :quantity])
+    end
+
+    def remove_invalid_sales
+      Sale.remove_invalid_sales
     end
 end

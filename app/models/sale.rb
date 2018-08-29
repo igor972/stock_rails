@@ -17,4 +17,14 @@ class Sale < ApplicationRecord
     end
     total
   end
+
+  def self.remove_invalid_sales
+    return true if Sale.all.count == 0
+    sale = Sale.all.last
+    sale.delete if sale.amount_of_products == 0
+  end
+
+  def amount_of_products
+    self.sale_products.count
+  end
 end
