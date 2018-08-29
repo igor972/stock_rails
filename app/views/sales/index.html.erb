@@ -17,7 +17,7 @@
       <tr>
         <td><%= sale.id %></td>
         <td><%= format_money(sale.get_total_value) %></td>
-        <td><%= sale.created_at %></td>
+        <td><%= format_datetime(sale.created_at) %></td>
         <td>
           <table>
             <thead>

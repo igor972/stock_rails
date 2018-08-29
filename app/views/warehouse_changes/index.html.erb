@@ -18,7 +18,7 @@
         <td><%= warehouse_change.product.name %></td>
         <td><%= warehouse_change.quantity %></td>
         <td><%= warehouse_change.reason.name %></td>
-        <td><%= warehouse_change.created_at.strftime("%H:%M:%S %d/%m/%Y") %></td>
+        <td><%= format_datetime(warehouse_change.created_at) %></td>
       </tr>
     <% end %>
   </tbody>

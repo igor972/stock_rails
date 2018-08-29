@@ -20,4 +20,8 @@ module ApplicationHelper
   def format_money(money)
     number_to_currency(money, :unit => "R$ ", :separator => ",", :delimiter => ".")
   end
+
+  def format_datetime(date)
+    date.strftime("%H:%M:%S %d/%m/%Y")
+  end
 end
