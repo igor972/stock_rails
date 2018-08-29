@@ -38,7 +38,7 @@ class SalesController < ApplicationController
     else
       respond_to do |format|
         if @sale.update(sale_params)
-            format.html { redirect_to edit_sale_path(@sale), notice: 'Sale was successfully updated.' }
+          format.html { redirect_to edit_sale_path(@sale), notice: 'Sale was successfully updated.' }
         else
           format.html { render :edit }
           format.json { render json: @sale.errors, status: :unprocessable_entity }
@@ -67,7 +67,7 @@ class SalesController < ApplicationController
     end
 
     def sale_params
-      params.require(:sale).permit(:total, sale_products_attributes: [:product_id, :quantity])
+      params.require(:sale).permit(:total, sale_products_attributes: [:product_id, :quantity, :current_price])
     end
 
     def remove_invalid_sales

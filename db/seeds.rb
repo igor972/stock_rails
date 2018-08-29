@@ -51,7 +51,7 @@ warehouse_change = WarehouseChange.create(
     {
       product_id: Product.first.id,
       reason_id: Reason.first.id,
-      quantity: 10.0
+      quantity: 100.0
     },
     {
       product_id: Product.first.id,
@@ -61,12 +61,12 @@ warehouse_change = WarehouseChange.create(
     {
       product_id: Product.all[1].id,
       reason_id: Reason.first.id,
-      quantity: 20.0
+      quantity: 200.0
     },
     {
       product_id: Product.all[2].id,
       reason_id: Reason.first.id,
-      quantity: 30.0
+      quantity: 300.0
     },
     {
       product_id: Product.all[1].id,
@@ -80,3 +80,32 @@ warehouse_change = WarehouseChange.create(
     }
   ]
 )
+
+
+3.times do
+  random_product_id = [0, 1, 2].sample
+
+  sale = Sale.new
+  2.times {sale.sale_products.build}
+
+  sale.sale_products.each do |sale_product|
+    sale_product.product_id = random_product_id
+    sale_product.quantity = [2, 3, 4, 5].sample
+  end
+  sale.save!
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

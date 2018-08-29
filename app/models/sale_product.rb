@@ -5,6 +5,8 @@ class SaleProduct < ApplicationRecord
   validates :quantity, numericality: { greater_than: 0 }
   validate :available_quantity
   before_create :add_change_warehouse
+  before_save :set_current_price
+
 
   # FIX: usar o current_price
   def subtotal
@@ -22,5 +24,9 @@ class SaleProduct < ApplicationRecord
     unless WarehouseChange.add_sell(product_id, quantity)
       errors.add(:quantity, "Erro ao adicionar movimentação no estoque")
     end
+  end
+
+  def set_current_price
+    self.current_price = subtotal
   end
 end
