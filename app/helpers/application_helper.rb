@@ -16,4 +16,8 @@ module ApplicationHelper
   def reasons_list
     Reason.all
   end
+
+  def format_money(money)
+    number_to_currency(money, :unit => "R$ ", :separator => ",", :delimiter => ".")
+  end
 end
