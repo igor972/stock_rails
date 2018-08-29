@@ -70,6 +70,6 @@ class WarehouseChangesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def warehouse_change_params
-      params.require(:warehouse_change).permit(:product_id, :reason_id, :quantity)
+      params.require(:warehouse_change).permit(:product_id, :reason_id, :quantity, :description)
     end
 end

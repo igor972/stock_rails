@@ -9,6 +9,7 @@
       <th>Quantity</th>
       <th>Motivo</th>
       <th>DateTime</th>
+      <th>Descrição</th>
     </tr>
   </thead>
 
@@ -19,6 +20,7 @@
         <td><%= warehouse_change.quantity %></td>
         <td><%= warehouse_change.reason.name %></td>
         <td><%= format_datetime(warehouse_change.created_at) %></td>
+        <td><%= warehouse_change.description %></td>
       </tr>
     <% end %>
   </tbody>

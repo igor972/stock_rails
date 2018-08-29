@@ -32,11 +32,12 @@ class WarehouseChange < ApplicationRecord
     WarehouseChange.total_itens(product_id) >= quantity
   end
 
-  def self.add_sell(product_id, quantity)
+  def self.add_sell(product_id, quantity, sale_id)
     whc = WarehouseChange.create(
       product_id: product_id,
       reason_id: 3,
-      quantity: quantity
+      quantity: quantity,
+      description: "Sale ID: #{sale_id}"
     )
   end
 end
