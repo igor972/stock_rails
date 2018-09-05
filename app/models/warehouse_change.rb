@@ -40,4 +40,22 @@ class WarehouseChange < ApplicationRecord
       description: "Sale ID: #{sale_id}"
     )
   end
+
+  def self.return_itens_to_warehouse(sale_id)
+    begin
+      sale = Sale.find(sale_id)
+      sale.sale_products.each do |sp|
+        WarehouseChange.add_item_change(sp.product_id, 4, sp.quantity, "Venda cancelada, ID: #{sale_id}")
+      end
+    rescue
+      return false
+    end
+    true
+  end
+
+  private
+
+    def self.add_item_change(product_id, reason_id, quantity, description)
+      WarehouseChange.create!(product_id: product_id, reason_id: reason_id, quantity: quantity, description: description)
+    end
 end

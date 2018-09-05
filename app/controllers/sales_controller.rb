@@ -1,5 +1,5 @@
 class SalesController < ApplicationController
-  before_action :set_sale, only: [:show, :edit, :update, :destroy]
+  before_action :set_sale, only: [:show, :edit, :update, :destroy, :disable]
   before_action :remove_invalid_sales, only: [:start_new_sale, :index]
 
   def index
@@ -59,6 +59,20 @@ class SalesController < ApplicationController
   def start_new_sale
     @sale = Sale.create(total: 0.0)
     redirect_to edit_sale_path(@sale)
+  end
+
+  def disable
+    if @sale.disable
+      respond_to do |format|
+        format.html { redirect_to sales_url, notice: "Venda cancelada com sucesso. Venda ##{@sale.id}" }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to sales_url, alert: "Algo deu errado com o cancelamento da venda ##{@sale.id}" }
+        format.json { head :no_content }
+      end
+    end
   end
 
   private

@@ -23,4 +23,17 @@ class Sale < ApplicationRecord
   def amount_of_products
     self.sale_products.count
   end
+
+  def disable
+    if WarehouseChange.return_itens_to_warehouse(self.id)
+      self.active = false
+      self.save
+      return true
+    end
+    return false
+  end
+
+  def self.actives_sales
+    Sale.all.where(active: true)
+  end
 end

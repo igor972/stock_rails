@@ -9,11 +9,12 @@
       <th>Total</th>
       <th>DateTime</th>
       <th>Produtos</th>
+      <th>Ações</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @sales.each do |sale| %>
+    <% get_all_active_sales.each do |sale| %>
       <tr>
         <td><%= sale.id %></td>
         <td><%= format_money(sale.get_total_value) %></td>
@@ -41,6 +42,7 @@
             </tbody>
           </table>
         </td>
+        <td><%= link_to 'Cancelar', sale_disable_path(sale), method: :post, data: {confirm: 'Tem certeza? A venda será cancelada e os produtos voltarão pro estoque' }%></td>
       </tr>
     <% end %>
   </tbody>

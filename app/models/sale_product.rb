@@ -14,10 +14,6 @@ class SaleProduct < ApplicationRecord
   end
 
   def available_quantity
-      p '================='
-      p "Product: #{product_id}"
-      p "Quantity: #{quantity}"
-      p '================='
     unless WarehouseChange.product_quantity_is_available?(product_id, quantity)
       total_product = WarehouseChange.total_itens(product_id)
       errors.add(:quantity, "Não possui quantidade suficiente em estoque. Apenas #{total_product}")
