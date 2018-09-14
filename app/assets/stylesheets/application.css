@@ -16,7 +16,6 @@
  *= require_self
  */
 
-.starter-template {
+.container-padding {
   padding: 1rem 1.5rem;
-  text-align: center;
 }
