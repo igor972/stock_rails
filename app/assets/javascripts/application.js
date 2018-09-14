@@ -11,6 +11,10 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery3
+//= require tether.min
+//= require bootstrap.min
+//= require ie10-viewport-bug-workaround
 //= require activestorage
 //= require turbolinks
 //= require_tree .
