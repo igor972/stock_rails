@@ -11,18 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
     <%= form.text_field :name %>
+    <small id="nameHelp" class="form-text text-muted">Nome do motivo</small>
   </div>
 
-  <div class="field">
+  <fieldset class="form-group">
     <%= form.label :action, 'Ação do motivo' %>
-    <%= form.radio_button :action, 'add'%> Adicionará<br />
-    <%= form.radio_button :action, 'remove' %> Removerá<br />
-  </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <%= form.radio_button :action, 'add', class: 'form-check-input'%> Adicionará<br />
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <%= form.radio_button :action, 'remove', class: 'form-check-input'%> Removerá<br />
+      </label>
+    </div>
+  </fieldset>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary"%>
   </div>
 <% end %>
