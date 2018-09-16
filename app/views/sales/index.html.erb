@@ -2,21 +2,21 @@
 
 <h1>Sales</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>#</th>
+      <th scope="row"># Pedido</th>
       <th>Total</th>
       <th>DateTime</th>
       <th>Produtos</th>
-      <th>Ações</th>
+      <th>Opções</th>
     </tr>
   </thead>
 
   <tbody>
     <% get_all_active_sales.each do |sale| %>
       <tr>
-        <td><%= sale.id %></td>
+        <th scope="row"><%= sale.id %></th>
         <td><%= format_money(sale.get_total_value) %></td>
         <td><%= format_datetime(sale.created_at) %></td>
         <td>
@@ -42,7 +42,11 @@
             </tbody>
           </table>
         </td>
-        <td><%= link_to 'Cancelar', sale_disable_path(sale), method: :post, data: {confirm: 'Tem certeza? A venda será cancelada e os produtos voltarão pro estoque' }%></td>
+        <td><%= link_to sale_disable_path(sale), method: :post, data: {confirm: 'Tem certeza? A venda será cancelada e os produtos voltarão pro estoque'} do%>
+          <span class='badge badge-danger'>
+            Cancelar
+          </span>
+          <%end%></td>
       </tr>
     <% end %>
   </tbody>
