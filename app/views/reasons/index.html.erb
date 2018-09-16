@@ -2,12 +2,12 @@
 
 <h1>Reasons</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
       <th>Action</th>
-      <th colspan="3"></th>
+      <th colspan="3">Opções</th>
     </tr>
   </thead>
 
@@ -18,7 +18,10 @@
         <td><%= action_name(reason.action) %></td>
         <td><%= link_to 'Show', reason %></td>
         <td><%= link_to 'Edit', edit_reason_path(reason) %></td>
-        <td><%= link_to 'Destroy', reason, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to reason, method: :delete, data: { confirm: 'Are you sure?' } do%>
+          <span class="badge badge-danger">Destroy</span>
+          <%end%>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Reason', new_reason_path %>
+<%= button_to 'New Reason', new_reason_path, class: 'btn btn-primary', method: :get %>
