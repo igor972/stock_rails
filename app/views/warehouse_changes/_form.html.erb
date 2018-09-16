@@ -11,22 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label 'product_id' %>
-    <%= form.collection_select(:product_id, products_list, :id, :name) %>
+    <%= form.collection_select(:product_id, products_list, :id, :name, {}, {class: 'custom-select mb-2 mr-sm-2 mb-sm-0'})%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :reason_id %>
-    <%= form.collection_select(:reason_id, reasons_list, :id, :name) %>
+    <%= form.collection_select(:reason_id, reasons_list, :id, :name, {}, {class: 'custom-select mb-2 mr-sm-2 mb-sm-0'})%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
+    <%= form.number_field :quantity, "aria-describedby" => "quantityHelp" %>
+    <small id="quantityHelp" class="form-text text-muted">Quantidade a ser alterada</small>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary"%>
   </div>
 <% end %>
