@@ -1,13 +1,15 @@
-<div class="field">
+<div class="form-group">
   <%= sale.label 'product_id' %>
   <%= sale.collection_select(:product_id, products_list_with_name_with_price, :id, :name) %>
+  <small id="product_idHelp" class="form-text text-muted">Detalhes do produto</small>
 </div>
 
-<div class="field">
+<div class="form-group">
   <%= sale.label 'quantity' %>
   <%= sale.number_field :quantity %>
+  <small id="quantityHelp" class="form-text text-muted">Detalhes do produto</small>
 </div>
 
 <div class="actions">
-  <%= sale.submit 'Adicionar produto', :name => 'add_sale_product' %>
+  <%= sale.submit 'Adicionar produto', :name => 'add_sale_product', class: "btn btn-primary" %>
 </div>

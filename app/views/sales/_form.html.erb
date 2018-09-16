@@ -12,13 +12,13 @@
   <% end %>
 
 <% if sale.sale_products.count > 0 %>
-  <table>
+  <table class="table">
     <thead>
       <tr>
         <th>#</th>
         <th>Produto</th>
         <th>Quantidade</th>
-        <th>Remover</th>
+        <th>Opções</th>
       </tr>
     </thead>
 
@@ -35,20 +35,15 @@
   </table>
 <% end %>
 
-  <div class="append-list">
-    <div class="nested_form">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
       <%= form.fields_for :sale_products, @sale.sale_products.build do |sale|%>
         <%= render 'sale_products/sale_product_partial', sale: sale%>
       <% end %>
     </div>
   </div>
 
-  <div class="field">
-    <%= form.label :total %>
-    <%= sale.total %>
-  </div>
-
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Concluir', class: 'btn btn-success'%>
   </div>
 <% end %>
