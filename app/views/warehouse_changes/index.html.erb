@@ -2,9 +2,10 @@
 
 <h1>Warehouse Changes</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
+      <th># Change</th>
       <th>Product</th>
       <th>Quantity</th>
       <th>Motivo</th>
@@ -16,9 +17,10 @@
   <tbody>
     <% @warehouse_changes.each do |warehouse_change| %>
       <tr>
+        <th scope="row"><%= warehouse_change.id %></th>
         <td><%= warehouse_change.product.name %></td>
         <td><%= warehouse_change.quantity %></td>
-        <td><%= warehouse_change.reason.name %></td>
+        <td><%= action_name(warehouse_change.reason.action, warehouse_change.reason.name) %></td>
         <td><%= format_datetime(warehouse_change.created_at) %></td>
         <td><%= warehouse_change.description %></td>
       </tr>
@@ -28,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Warehouse Change', new_warehouse_change_path %>
+<%= button_to 'New Warehouse Change', new_warehouse_change_path, method: :get, class: 'btn btn-primary' %>

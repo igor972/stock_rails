@@ -24,4 +24,24 @@ module ApplicationHelper
   def format_datetime(date)
     date.strftime("%H:%M:%S %d/%m/%Y")
   end
+
+  def action_name(action, name = nil)
+    ret = ""
+    if action == 'add'
+      if name != nil 
+        ret =  "<span class='badge badge-success'>#{name}</span>"
+      else
+        ret =  "<span class='badge badge-success'>Adicionará</span>"
+      end
+    elsif action == 'remove'
+      if name != nil 
+        ret = "<span class='badge badge-danger'>#{name}</span>"
+      else
+        ret =  "<span class='badge badge-danger'>Removerá</span>"
+      end
+      
+    end
+    
+    return ret.html_safe
+  end
 end
