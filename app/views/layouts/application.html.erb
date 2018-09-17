@@ -19,25 +19,25 @@
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+          <li class="nav-item <%= current_page?(root_path) ? 'active' : '' %>">
             <%= link_to 'Stock', root_path, class: "nav-link"%>
           </li>
-          <li class="nav-item">
+          <li class="nav-item <%= current_page?(products_path) ? 'active' : '' %>">
             <%= link_to 'Produtos cadastrados', products_path, class: "nav-link"%>
           </li>
-          <li class="nav-item">
+          <li class="nav-item <%= current_page?(sales_path) ? 'active' : '' %>">
             <%= link_to 'Vendas', sales_path, class: "nav-link"%>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item <%= current_page?(reasons_path) ? 'active' : '' %>">
             <%= link_to 'Motivos', reasons_path, class: "nav-link"%>
           </li>
-          <li class="nav-item">
+          <li class="nav-item <%= current_page?(warehouse_changes_path) ? 'active' : '' %>">
             <%= link_to 'Movimentação Estoque', warehouse_changes_path, class: "nav-link"%>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Relatórios</a>
+          <li class="nav-item <%= current_page?(reports_path) ? 'active' : '' %>">
+            <%= link_to 'Relatórios', reports_path, class: "nav-link" %>
           </li>
 
           <li class="nav-item dropdown">
