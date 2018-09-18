@@ -1,2 +1,5 @@
-<h1>Reports#index</h1>
-<p>Find me in app/views/reports/index.html.erb</p>
+<h1>temporary buttons reports</h1>
+  <%= button_to 'Produtos cadastrados', reports_products_path, class: 'btn btn-primary', method: :get, form: {style: 'display:inline-block;'}%>
+  <%= button_to 'Vendas', reports_sales_path, class: 'btn btn-info', method: :get, form: {style: 'display:inline-block;'}%>
+  <%= button_to 'Movimentação de estoque', reports_warehouse_changes_path, class: 'btn btn-warning', method: :get, form: {style: 'display:inline-block;'}%>
+</div>
