@@ -36,4 +36,10 @@ class Sale < ApplicationRecord
   def self.actives_sales
     Sale.all.where(active: true)
   end
+
+  def self.filter_by_date(start, finish)
+    active_sales = self.actives_sales
+    filtered_sales = active_sales.where("created_at >= ? AND created_at <= ?", start.beginning_of_day, finish.end_of_day)
+    return filtered_sales
+  end
 end

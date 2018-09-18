@@ -1,1 +1,19 @@
-Sales reports
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="row"># Pedido</th>
+      <th>Total</th>
+      <th>DateTime</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @today.each do |sale| %>
+      <tr>
+        <th scope="row"><%= sale.id %></th>
+        <td><%= format_money(sale.get_total_value) %></td>
+        <td><%= format_datetime(sale.created_at) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

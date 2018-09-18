@@ -3,6 +3,7 @@ class ReportsController < ApplicationController
   end
 
   def sales
+    @today = Sale.filter_by_date(DateTime.now, DateTime.now)
   end
 
   def products
