@@ -42,4 +42,16 @@ class Sale < ApplicationRecord
     filtered_sales = active_sales.where("created_at >= ? AND created_at <= ?", start.beginning_of_day, finish.end_of_day)
     return filtered_sales
   end
+
+  def self.by_date_and_product(start, finish, product_id)
+    filtered_sales = []
+    
+    Sale.filter_by_date(start, finish).each do |sale|
+      if sale.sale_products.where(product_id: product_id).first
+        filtered_sales << sale
+      end
+    end
+
+    return filtered_sales
+  end
 end
