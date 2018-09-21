@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   def date_is_valid?(date)
     begin 
-      date.to_date
+      raise 'invalid' if date.to_date == nil
     rescue
       return false
     end
