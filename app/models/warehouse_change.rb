@@ -53,6 +53,23 @@ class WarehouseChange < ApplicationRecord
     true
   end
 
+  def self.warehouse_changes_by_date(start, finish)
+    return WarehouseChange.where("created_at >= ? AND created_at <= ?", start.beginning_of_day, finish.end_of_day)
+  end
+
+  def self.warehouse_changes_by_date_and_product(start, finish, product_id)
+    changes = WarehouseChange.warehouse_changes_by_date(start, finish)
+    return changes.where(product_id: product_id)
+  end
+
+  def self.get_total_changed(warehouse_change_list)
+    total = 0
+    warehouse_change_list.each do |change|
+      total = eval("#{total}" + "#{change.reason.get_math_symbol}" + "#{change.quantity}")
+    end
+    return total
+  end
+
   private
 
     def self.add_item_change(product_id, reason_id, quantity, description)

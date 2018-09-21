@@ -1,1 +1,66 @@
-WarehouseChanges reports
+<% flash.each do |key, value| %>
+  <div class="<%= flash_class(key) %>" role="alert">
+    <%= value %>
+  </div>
+<% end %>
+<br/>
+
+<%= form_with(url: reports_warehouse_changes_path, local: true, method: :get) do |form| %>
+  <div class="form-row">
+
+    <div class="col-md-4 mb-3">
+      <%= form.label 'product_id' %>
+      <%= form.collection_select(:product_id, products_list, :id, :name, {}, {class: 'custom-select mb-2 mr-sm-2 mb-sm-0'})%>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <%= form.label :start %>
+      <%= form.text_field :start, "aria-describedby" => "startHelp", class: 'input-date-mask'%>
+      <small id="startHelp" class="form-text text-muted">Data Início</small>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <%= form.label :finish %>
+      <%= form.text_field :finish, "aria-describedby" => "finishHelp", class: 'input-date-mask'%>
+      <small id="finishHelp" class="form-text text-muted">Data Fim</small>
+    </div>
+
+    <div class="actions col-md-4 mb-3">
+      <%= form.submit 'Filtrar', class: "btn btn-primary"%>
+    </div>
+  </div>
+<%end%>
+
+<br/>
+<hr>
+<br/>
+
+<% if @warehouse_change_result %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th># Change</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Motivo</th>
+        <th>DateTime</th>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @warehouse_change_result.each do |warehouse_change| %>
+        <tr>
+          <th scope="row"><%= warehouse_change.id %></th>
+          <td><%= warehouse_change.product.name %></td>
+          <td><%= warehouse_change.quantity %></td>
+          <td><%= action_name(warehouse_change.reason.action, warehouse_change.reason.name) %></td>
+          <td><%= format_datetime(warehouse_change.created_at) %></td>
+          <td><%= warehouse_change.description %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <h2><%= "Total movimentado: #{total_warehouse_changed(@warehouse_change_result)}"%></h2>
+<%end%>

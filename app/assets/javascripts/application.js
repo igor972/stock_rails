@@ -16,5 +16,26 @@
 //= require bootstrap.min
 //= require ie10-viewport-bug-workaround
 //= require activestorage
+//= require inputmask
+//= require jquery.inputmask
 //= require turbolinks
 //= require_tree .
+
+
+  window.onload = function () {
+    applyInputMaskDate();
+  }
+
+  function applyInputMaskDate() {
+    var elems = document.getElementsByClassName('input-date-mask')
+    if(elems != null) {
+      for(var i = 0; i < elems.length; i++) {
+        inputMask(elems[i]);
+      }
+    }
+  }
+
+  function inputMask(element_input_date) {
+    var im = new Inputmask("99/99/9999");
+    im.mask(element_input_date);
+  }
