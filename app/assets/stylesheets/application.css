@@ -10,12 +10,17 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= bootstrap.min
+ 
  *= tether.min
+ *= bootstrap.min
  *= require_tree .
  *= require_self
  */
 
 .container-padding {
-  padding: 1rem 1.5rem;
+  padding: 3rem 1.5rem;
+}
+
+.padding-card {
+  padding: 1.25rem;
 }

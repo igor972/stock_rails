@@ -1,5 +1,30 @@
-<h1>temporary buttons reports</h1>
-  <%= button_to 'Produtos cadastrados', reports_products_path, class: 'btn btn-primary', method: :get, form: {style: 'display:inline-block;'}%>
-  <%= button_to 'Vendas', reports_sales_path, class: 'btn btn-info', method: :get, form: {style: 'display:inline-block;'}%>
-  <%= button_to 'Movimentação de estoque', reports_warehouse_changes_path, class: 'btn btn-warning', method: :get, form: {style: 'display:inline-block;'}%>
+<div class="row">
+  <div class="col-lg-4 col-md-4">
+    <div class="card">
+      <div class="card-body padding-card">
+        <h5 class="card-title">Produtos</h5>
+        <p class="card-text">Informações sobre produtos</p>
+        <%= button_to 'Produtos cadastrados', reports_products_path, class: 'btn btn-primary', method: :get, form: {style: 'display:inline-block;'}%>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-4">
+    <div class="card">
+      <div class="card-body padding-card">
+        <h5 class="card-title">Vendas</h5>
+        <p class="card-text">Informações Vendas. Podendo fazer pesquisa por produto e data</p>
+        <%= button_to 'Vendas', reports_sales_path, class: 'btn btn-info', method: :get, form: {style: 'display:inline-block;'}%>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-md-4">
+    <div class="card">
+      <div class="card-body padding-card">
+        <h5 class="card-title">Movimentação de estoque</h5>
+        <p class="card-text">Informações sobre movimentação de estoque, podendo fazer pesquisa por produto e data</p>
+        <%= button_to 'Movimentação de estoque', reports_warehouse_changes_path, class: 'btn btn-warning', method: :get, form: {style: 'display:inline-block;'}%>
+      </div>
+    </div>
+  </div>
 </div>
