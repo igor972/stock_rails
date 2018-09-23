@@ -9,18 +9,18 @@
   <div class="form-row">
 
     <div class="col-md-4 mb-3">
-      <%= form.label 'product_id' %>
+      <%= form.label 'product_id', 'Produto' %>
       <%= form.collection_select(:product_id, products_list, :id, :name, {}, {class: 'custom-select mb-2 mr-sm-2 mb-sm-0'})%>
     </div>
 
     <div class="col-md-4 mb-3">
-      <%= form.label :start %>
+      <%= form.label :start, 'Início' %>
       <%= form.text_field :start, "aria-describedby" => "startHelp", class: 'input-date-mask', value: '21/09/2018'%>
       <small id="startHelp" class="form-text text-muted">Data Início</small>
     </div>
 
     <div class="col-md-4 mb-3">
-      <%= form.label :finish %>
+      <%= form.label :finish, 'Fim' %>
       <%= form.text_field :finish, "aria-describedby" => "finishHelp", class: 'input-date-mask', value: '21/09/2018'%>
       <small id="finishHelp" class="form-text text-muted">Data Fim</small>
     </div>

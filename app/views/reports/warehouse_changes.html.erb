@@ -9,18 +9,18 @@
   <div class="form-row">
 
     <div class="col-md-4 mb-3">
-      <%= form.label 'product_id' %>
+      <%= form.label 'product_id', 'Produto' %>
       <%= form.collection_select(:product_id, products_list, :id, :name, {}, {class: 'custom-select mb-2 mr-sm-2 mb-sm-0'})%>
     </div>
 
     <div class="col-md-4 mb-3">
-      <%= form.label :start %>
+      <%= form.label :start, 'Início' %>
       <%= form.text_field :start, "aria-describedby" => "startHelp", class: 'input-date-mask'%>
       <small id="startHelp" class="form-text text-muted">Data Início</small>
     </div>
 
     <div class="col-md-4 mb-3">
-      <%= form.label :finish %>
+      <%= form.label :finish, 'Fim' %>
       <%= form.text_field :finish, "aria-describedby" => "finishHelp", class: 'input-date-mask'%>
       <small id="finishHelp" class="form-text text-muted">Data Fim</small>
     </div>
@@ -40,8 +40,8 @@
     <thead>
       <tr>
         <th># Change</th>
-        <th>Product</th>
-        <th>Quantity</th>
+        <th>Produto</th>
+        <th>Quantidade</th>
         <th>Motivo</th>
         <th>DateTime</th>
         <th>Descrição</th>
