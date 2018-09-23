@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label 'product_id' %>
+    <%= form.label 'product_id', 'Produto' %>
     <%= form.collection_select(:product_id, products_list, :id, :name, {}, {class: 'custom-select mb-2 mr-sm-2 mb-sm-0'})%>
   </div>
 
   <div class="form-group">
-    <%= form.label :reason_id %>
+    <%= form.label :reason_id, 'Motivo' %>
     <%= form.collection_select(:reason_id, reasons_list, :id, :name, {}, {class: 'custom-select mb-2 mr-sm-2 mb-sm-0'})%>
   </div>
 
   <div class="form-group">
-    <%= form.label :quantity %>
+    <%= form.label :quantity, 'Quantidade' %>
     <%= form.number_field :quantity, "aria-describedby" => "quantityHelp" %>
     <small id="quantityHelp" class="form-text text-muted">Quantidade a ser alterada</small>
   </div>
 
   <div class="actions">
-    <%= form.submit class: "btn btn-primary"%>
+    <%= form.submit, 'Criar', class: "btn btn-primary"%>
   </div>
 <% end %>
