@@ -1,11 +1,11 @@
 <div class="form-group">
-  <%= sale.label 'product_id' %>
+  <%= sale.label 'product_id', 'Produto' %>
   <%= sale.collection_select(:product_id, products_list_with_name_with_price, :id, :name) %>
   <small id="product_idHelp" class="form-text text-muted">Detalhes do produto</small>
 </div>
 
 <div class="form-group">
-  <%= sale.label 'quantity' %>
+  <%= sale.label 'quantity', 'Quantidade' %>
   <%= sale.number_field :quantity %>
   <small id="quantityHelp" class="form-text text-muted">Detalhes do produto</small>
 </div>
