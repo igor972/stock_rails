@@ -23,11 +23,12 @@
 
   <div class="form-group">
     <%= form.label :quantity, 'Quantidade' %>
-    <%= form.number_field :quantity, "aria-describedby" => "quantityHelp" %>
+    <%#= form.number_field :quantity, "aria-describedby" => "quantityHelp" %>
+    <%= form.text_field :quantity, "aria-describedby" => "quantityHelp" %>
     <small id="quantityHelp" class="form-text text-muted">Quantidade a ser alterada</small>
   </div>
 
   <div class="actions">
-    <%= form.submit, 'Criar', class: "btn btn-primary"%>
+    <%= form.submit 'Criar', class: "btn btn-primary"%>
   </div>
 <% end %>

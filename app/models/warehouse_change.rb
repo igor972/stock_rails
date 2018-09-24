@@ -2,6 +2,10 @@ class WarehouseChange < ApplicationRecord
   belongs_to :product
   belongs_to :reason
 
+  validates :product_id, presence: true, allow_blank: false
+  validates :reason_id, presence: true, allow_blank: false
+  validates :quantity, presence: true, allow_blank: false
+
   validate :cant_be_negative
 
   def self.total_itens(product_id)
@@ -22,10 +26,24 @@ class WarehouseChange < ApplicationRecord
   end
 
   def cant_be_negative
+      unless is_number?(self.quantity)
+      errors.add(:quantity, "Deve ser número válido") 
+      return ''
+    end
+
+    if self.quantity < 1
+      errors.add(:quantity, "Deve ser maior que 0")
+      return ''
+    end
+
     total = WarehouseChange.total_itens(self.product_id)
     if (total + self.get_change_real_value) < 0
       errors.add(:quantity, "Estoque não pode ficar negativo. Existem #{total} itens em estoque")
     end
+  end
+
+  def is_number?(value)
+    return Integer(value) rescue false
   end
 
   def self.product_quantity_is_available?(product_id, quantity)
