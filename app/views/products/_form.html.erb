@@ -33,7 +33,7 @@
       <%= form.label :image, 'Imagem' %>
       <%= form.text_field :image, "aria-describedby" => "imageHelp"%>
       <small id="imageHelp" class="form-text text-muted">URL do produto</small>
-      <%if product.image%>
+      <%if @product.image%>
         <%= get_product_image(product) %>
       <%end%>
     </div>

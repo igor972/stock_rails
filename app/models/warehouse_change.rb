@@ -42,10 +42,6 @@ class WarehouseChange < ApplicationRecord
     end
   end
 
-  def is_number?(value)
-    return Integer(value) rescue false
-  end
-
   def self.product_quantity_is_available?(product_id, quantity)
     WarehouseChange.total_itens(product_id) >= quantity
   end
