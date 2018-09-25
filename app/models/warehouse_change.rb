@@ -26,7 +26,7 @@ class WarehouseChange < ApplicationRecord
   end
 
   def cant_be_negative
-      unless is_number?(self.quantity)
+    unless is_number?(self.quantity)
       errors.add(:quantity, "Deve ser número válido") 
       return ''
     end

@@ -53,4 +53,12 @@ module ApplicationHelper
         when 'alert' then "alert alert-error"
     end
   end
+
+  def get_product_image(product)
+    if product.image == ''
+      return image_tag 'missing.jpg', width: 100, height: 50
+    else
+      return image_tag product.image, width: 100, height: 50
+    end
+  end
 end

@@ -17,7 +17,7 @@
 
 <p>
   <strong>Imagem:</strong>
-  <%= image_tag @product.image, size: '100x100'%>
+  <%= get_product_image(product) %>
 </p>
 
 <%= link_to 'Editar', edit_product_path(@product) %> |
