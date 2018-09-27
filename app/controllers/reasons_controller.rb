@@ -59,7 +59,7 @@ class ReasonsController < ApplicationController
     if @reason.destroy
       message = {notice: 'Removido com sucesso'}
     else
-      message = {alert: @reason.errors.full_messages.first}
+      message = {error: @reason.errors.full_messages.first}
     end
 
     respond_to do |format|
