@@ -84,6 +84,13 @@ class WarehouseChange < ApplicationRecord
     return total
   end
 
+  def self.there_is_reason_associated?(reason_id)
+    WarehouseChange.all.each do |wc|
+      return true if wc.reason_id == reason_id
+    end
+    return false
+  end
+
   private
 
     def self.add_item_change(product_id, reason_id, quantity, description)

@@ -1,8 +1,4 @@
-<% flash.each do |key, value| %>
-  <div class="<%= flash_class(key) %>" role="alert">
-    <%= value %>
-  </div>
-<% end %>
+
 <br/>
 
 <%= form_with(url: reports_warehouse_changes_path, local: true, method: :get) do |form| %>

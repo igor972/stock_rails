@@ -54,9 +54,16 @@ class ReasonsController < ApplicationController
   # DELETE /reasons/1
   # DELETE /reasons/1.json
   def destroy
-    @reason.destroy
+    message = {}
+
+    if @reason.destroy
+      message = {notice: 'Removido com sucesso'}
+    else
+      message = {alert: "Não foi possível remover este 'Motivo'. Provavelmente existem dados vinculados ao mesmo."}
+    end
+
     respond_to do |format|
-      format.html { redirect_to reasons_url, notice: 'Reason was successfully destroyed.' }
+      format.html { redirect_to reasons_path, :flash => message }
       format.json { head :no_content }
     end
   end
