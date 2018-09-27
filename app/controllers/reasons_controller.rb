@@ -59,7 +59,7 @@ class ReasonsController < ApplicationController
     if @reason.destroy
       message = {notice: 'Removido com sucesso'}
     else
-      message = {alert: "Não foi possível remover este 'Motivo'. Provavelmente existem dados vinculados ao mesmo."}
+      message = {alert: @reason.errors.full_messages.first}
     end
 
     respond_to do |format|
