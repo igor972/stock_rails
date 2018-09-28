@@ -52,7 +52,11 @@
           <td><%= warehouse_change.quantity %></td>
           <td><%= action_name(warehouse_change.reason.action, warehouse_change.reason.name) %></td>
           <td><%= format_datetime(warehouse_change.created_at) %></td>
-          <td><%= warehouse_change.description %></td>
+          <% if warehouse_change.description%>
+            <td><%= link_to warehouse_change.description, sale_path(get_sale_id_from_warehouse_change(warehouse_change)), target: '_blank' %></td>
+          <%else%>
+            <td><%= warehouse_change.description %></td>
+          <%end%>
         </tr>
       <% end %>
     </tbody>
