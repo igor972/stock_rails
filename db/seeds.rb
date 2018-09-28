@@ -52,32 +52,68 @@ warehouse_change = WarehouseChange.create(
     {
       product_id: Product.first.id,
       reason_id: Reason.first.id,
-      quantity: 100.0
+      quantity: 100.0,
+      created_at: (DateTime.now - 1.month).beginning_of_month
     },
     {
       product_id: Product.first.id,
       reason_id: Reason.all[1].id,
-      quantity: 2.0
+      quantity: 2.0,
+      created_at: (DateTime.now - 1.month).beginning_of_month + 5.days
     },
     {
       product_id: Product.all[1].id,
       reason_id: Reason.first.id,
-      quantity: 200.0
+      quantity: 200.0,
+      created_at: (DateTime.now - 10.days)
     },
     {
       product_id: Product.all[2].id,
       reason_id: Reason.first.id,
-      quantity: 300.0
+      quantity: 300.0,
+      created_at: (DateTime.now).beginning_of_month
     },
     {
       product_id: Product.all[1].id,
       reason_id: Reason.all[1].id,
-      quantity: 2.0
+      quantity: 2.0,
+      created_at: (DateTime.now - 1.month).beginning_of_month + 10.days
     },
     {
       product_id: Product.all[2].id,
       reason_id: Reason.all[1].id,
-      quantity: 2.0
+      quantity: 2.0,
+      created_at: (DateTime.now - 1.month).beginning_of_month + 5.days
+    },
+    {
+      product_id: Product.all[2].id,
+      reason_id: Reason.all[1].id,
+      quantity: 2.0,
+      created_at: (DateTime.now - 1.month).beginning_of_month + 5.days
+    },
+    {
+      product_id: Product.all[2].id,
+      reason_id: Reason.all[1].id,
+      quantity: 5.0,
+      created_at: (DateTime.now - 1.month).beginning_of_month + 6.days
+    },
+    {
+      product_id: Product.all[2].id,
+      reason_id: Reason.all[1].id,
+      quantity: 10.0,
+      created_at: (DateTime.now - 1.month).beginning_of_month + 7.days
+    },
+    {
+      product_id: Product.all[2].id,
+      reason_id: Reason.all[1].id,
+      quantity: 15.0,
+      created_at: (DateTime.now - 1.month).beginning_of_month + 8.days
+    },
+    {
+      product_id: Product.all[2].id,
+      reason_id: Reason.all[1].id,
+      quantity: 1.0,
+      created_at: (DateTime.now - 1.month).beginning_of_month + 12.days
     }
   ]
 )
