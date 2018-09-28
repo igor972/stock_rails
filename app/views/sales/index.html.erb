@@ -7,7 +7,7 @@
       <th>Total</th>
       <th>DateTime</th>
       <th>Produtos</th>
-      <th>Opções</th>
+      <th colspan="2">Opções</th>
     </tr>
   </thead>
 
@@ -40,6 +40,7 @@
             </tbody>
           </table>
         </td>
+        <td><%= link_to 'Mostrar', sale_path(sale) %></td>
         <td><%= link_to sale_disable_path(sale), method: :post, data: {confirm: 'Tem certeza? A venda será cancelada e os produtos voltarão pro estoque'} do%>
           <span class='badge badge-danger'>
             Cancelar

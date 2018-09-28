@@ -1,2 +1,31 @@
-<h1>Sales#show</h1>
-<p>Find me in app/views/sales/show.html.erb</p>
+<h1>Venda - ID: <%= @sale.id%></h1>
+
+<h5><%= format_datetime(@sale.created_at) %></h5>
+<br/>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Produto</th>
+      <th>Quantidade</th>
+      <th>Subtotal</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sale.sale_products.each_with_index do |sale_product, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= sale_product.product.name %></td>
+        <td><%= sale_product.quantity %></td>
+        <td><%= format_money(sale_product.current_price) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= button_to 'Cancelar venda', sale_disable_path(@sale), class: 'btn btn-danger', data: {confirm: 'Tem certeza? A venda será cancelada e os produtos voltarão pro estoque'} %>
+
+<hr>
+
+<h5>Valor total: <%= format_money(@sale.get_total_value) %></h5>
