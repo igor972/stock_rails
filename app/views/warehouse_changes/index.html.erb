@@ -12,18 +12,24 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @warehouse_changes.each do |warehouse_change| %>
-      <tr>
-        <th scope="row"><%= warehouse_change.id %></th>
-        <td><%= warehouse_change.product.name %></td>
-        <td><%= warehouse_change.quantity %></td>
-        <td><%= action_name(warehouse_change.reason.action, warehouse_change.reason.name) %></td>
-        <td><%= format_datetime(warehouse_change.created_at) %></td>
-        <td><%= warehouse_change.description %></td>
-      </tr>
-    <% end %>
-  </tbody>
+  <% if @warehouse_changes.length > 0 %>
+    <tbody>
+      <% @warehouse_changes.each do |warehouse_change| %>
+        <tr>
+          <th scope="row"><%= warehouse_change.id %></th>
+          <td><%= warehouse_change.product.name %></td>
+          <td><%= warehouse_change.quantity %></td>
+          <td><%= action_name(warehouse_change.reason.action, warehouse_change.reason.name) %></td>
+          <td><%= format_datetime(warehouse_change.created_at) %></td>
+          <% if warehouse_change.description%>
+            <td><%= link_to warehouse_change.description, sale_path(get_sale_id_from_warehouse_change(warehouse_change)), target: '_blank' %></td>
+          <%else%>
+            <td><%= warehouse_change.description %></td>
+          <%end%>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
 </table>
 
 <br>
