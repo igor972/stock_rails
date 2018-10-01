@@ -29,3 +29,4 @@ test:
 production:
   <<: *default
   database: stock_rails_mysql_production
+  url: <%= ENV['DATABASE_URL'] %>
