@@ -1,24 +1,16 @@
-# README
+Stock Rails
+===========
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple stock app with rails
 
-Things you may want to cover:
+Production app on Heroku [here]( https://evening-peak-56050.herokuapp.com/)
 
-* Ruby version
+## How to set it up
 
-* System dependencies
+1. You will need ruby '2.4.4', Rails 5 and Mysql
 
-* Configuration
+2. bundle install
 
-* Database creation
+3. rails db:setup (this will run some scripts to populate the database with some examples)
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+4. rails s
