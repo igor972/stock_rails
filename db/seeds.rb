@@ -121,7 +121,7 @@ warehouse_change = WarehouseChange.create(
 p "======Creating Some Sales======"
 
 3.times do
-  random_product_id = [1, 2, 3].sample
+  random_product_id = Product.all.map{|p| p.id}.sample
 
   sale = Sale.new
   2.times {sale.sale_products.build}

@@ -18,7 +18,6 @@ class WarehouseChange < ApplicationRecord
   end
 
   def get_change_real_value
-    byebug
     if self.reason.action.eql?('add')
       return self.quantity
     elsif self.reason.action.eql?('remove')
