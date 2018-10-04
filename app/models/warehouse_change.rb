@@ -8,6 +8,11 @@ class WarehouseChange < ApplicationRecord
 
   validate :cant_be_negative
 
+  ADD_ID = Reason.all[0].id
+  REMOVE_ID = Reason.all[1].id
+  SELL_ID = Reason.all[2].id
+  CANCELL_SELL_ID = Reason.all[3].id
+
   def self.total_itens(product_id)
     total = 0
     WarehouseChange.where(product_id: product_id).each do |wc|
@@ -49,7 +54,7 @@ class WarehouseChange < ApplicationRecord
   def self.add_sell(product_id, quantity, sale_id)
     whc = WarehouseChange.create(
       product_id: product_id,
-      reason_id: 3,
+      reason_id: SELL_ID,
       quantity: quantity,
       description: "Sale ID: #{sale_id}"
     )
@@ -59,7 +64,7 @@ class WarehouseChange < ApplicationRecord
     begin
       sale = Sale.find(sale_id)
       sale.sale_products.each do |sp|
-        WarehouseChange.add_item_change(sp.product_id, 4, sp.quantity, "Venda cancelada, ID: #{sale_id}")
+        WarehouseChange.add_item_change(sp.product_id, CANCELL_SELL_ID, sp.quantity, "Venda cancelada, ID: #{sale_id}")
       end
     rescue
       return false
