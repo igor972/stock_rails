@@ -15,13 +15,13 @@
 
     <div class="col-md-4 mb-3">
       <%= form.label :start, 'Início' %>
-      <%= form.text_field :start, "aria-describedby" => "startHelp", class: 'input-date-mask', value: '21/09/2018'%>
+      <%= form.text_field :start, "aria-describedby" => "startHelp", class: 'input-date-mask', value: "#{DateTime.now.beginning_of_year.strftime('%d/%m/%Y')}"%>
       <small id="startHelp" class="form-text text-muted">Data Início</small>
     </div>
 
     <div class="col-md-4 mb-3">
       <%= form.label :finish, 'Fim' %>
-      <%= form.text_field :finish, "aria-describedby" => "finishHelp", class: 'input-date-mask', value: '21/09/2018'%>
+      <%= form.text_field :finish, "aria-describedby" => "finishHelp", class: 'input-date-mask', value: "#{DateTime.now.end_of_year.strftime('%d/%m/%Y')}"%>
       <small id="finishHelp" class="form-text text-muted">Data Fim</small>
     </div>
 
